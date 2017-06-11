@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="seriesList">
+  <head>
+    <script src="angular/angular.js"></script>
+    <script src="angular/seriesList.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <meta charset="utf-8">
+    <title>SI1 Lab02</title>
+  </head>
+  <body ng-controller="seriesController">
+    <div class = "jumbotron">
+      <h3>{{pesquisa}}</h3>
+      <input class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
+      <button class = "btn btn-primary btn-block" ng-click="getSeries(nome)">Pesquisar</button>
+    </div>
+
+    <div>
+  		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
+  		<img class="img-responsive center-block" src="{{serie.Poster}}">
+      <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar</button>
+  		<p>{{serie.Title}}</p>
+  		</md-list-item>
+	</div>
+
+  <div class="meuPerfil">
+    <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-2">
+    <img class="img-responsive center-block" src="{{serie.Poster}}">
+    <p>{{serie.Title}}</p>
+    </md-list-item>
+  </div>
+
+
+
+  </div>
+  </body>
+</html>
