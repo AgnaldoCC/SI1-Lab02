@@ -18,6 +18,10 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.adicionaSerie = function(serie){
     $scope.minhasSeries.push(serie);
+  };
+
+  $scope.contains = function(serie){
+    return $scope.minhasSeries.contains(serie);
   }
 
 });

@@ -1,13 +1,13 @@
 .jumbotron{
-  background-color: #FF6666;
-  padding-left: 30%;
-  padding-right: 30%;
+  background-color: #CCCCCC;
   text-align: center;
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
+  width: 50%;
+
 }
 
 .btn{
   margin-top: 5px;
-
 }
