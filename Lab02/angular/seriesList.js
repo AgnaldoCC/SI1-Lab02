@@ -21,8 +21,7 @@ app.controller("seriesController", function($scope, $http){
   };
   $scope.contains = function(serie){
     for (var i = 0; i < minhasSeries.length; i++) {
-      if (minhasSeries[i].Title == serie.Title){
-        
+      if (minhasSeries[i].Title == serie.Title){  
         return true;
       }
     }return false;

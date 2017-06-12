@@ -38,3 +38,15 @@ ul.nav li a:hover{
 .deleteSerie{
   width: 50%;
 }
+
+#series{
+  min-width: 1000px;
+  min-height: 1000px;
+  padding: 13px;
+  display: inline-block;
+}
+
+#botaoPerfil{
+  width: 100px;
+  height: 35px;
+}

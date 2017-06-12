@@ -30,24 +30,29 @@
       <h3></h3>
 
       <div class="images">
-    		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
-    		<img class="img-responsive center-block" src="{{serie.Poster}}">
+    		<md-list-item ng-repeat="serie in series" class= "col-xs-3">
+    		<img class="thumbnail img-responsive center-block" ng-if="serie.Poster != 'N/A'" src="{{serie.Poster}}">
+        <img class="thumbnail img-responsive center-block" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
         <button class="btn btn-primary btn-danger" ng-click="adicionaSerie(serie)">Adicionar</button>
     		<span>{{serie.Title}}</span>
     		</md-list-item>
       </div>
+
     </div>
 
     <!--Minhas Series-->
 
     <div id="series" class="tab-pane fade">
       <h3></h3>
-      <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-1">
-      <img class="img-responsive center-block" src="{{serie.Poster}}">
-      <button class="adicionarSerie" ng-click="adicionarWatchList(serie)"></button>
-      <button class="deleteSerie" ng-click="deletarSerie(serie)"></button>
+      <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-4">
+      <img class="img-thumbnail img-responsive center-block" src="{{serie.Poster}}">
+      <div class="row">
+        <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="adicionarWatchList(serie)">Adicionar</button></div>
+        <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="deletarSerie(serie)">Remover</button></div>
+      </div>
       </md-list-item>
     </div>
+
   </div>
 
   </body>
