@@ -29,29 +29,35 @@
 
       <h3></h3>
 
-      <div class="images">
-    		<md-list-item ng-repeat="serie in series" class= "col-xs-3">
-    		<img class="thumbnail img-responsive center-block" ng-if="serie.Poster != 'N/A'" src="{{serie.Poster}}">
-        <img class="thumbnail img-responsive center-block" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
-        <button class="btn btn-primary btn-danger" ng-click="adicionaSerie(serie)">Adicionar</button>
-    		<span>{{serie.Title}}</span>
-    		</md-list-item>
+    <div class="row">
+      <div class="row-height">
+      	<md-list-item ng-repeat="serie in series">
+      	<div class="col"><img class="thumbnail img-responsive center-block" ng-if="serie.Poster != 'N/A'" src="{{serie.Poster}}"></div>
+        <div class="col"><img class="thumbnail img-responsive center-block" id = "posterNulo" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg"></div>
+        <div class="col"><button class="btn btn-primary btn-danger col-bottom" ng-click="adicionaSerie(serie)">Adicionar</button></div>
+      	</md-list-item>
       </div>
-
+    </div>
     </div>
 
     <!--Minhas Series-->
 
     <div id="series" class="tab-pane fade">
       <h3></h3>
-      <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-4">
+      <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-3">
       <img class="img-thumbnail img-responsive center-block" src="{{serie.Poster}}">
-      <div class="row">
-        <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="adicionarWatchList(serie)">Adicionar</button></div>
-        <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="deletarSerie(serie)">Remover</button></div>
+      <div>
+        <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="adicionarWatchList(serie)">Adicionar à WatchList</button></div>
+        <div><button id ="botaoPerfil" class="btn btn-primary btn-danger" ng-click="deletarSerie(serie)">Remover</button></div>
       </div>
       </md-list-item>
     </div>
+
+  <div id="watchList">
+
+
+
+  </div>
 
   </div>
 

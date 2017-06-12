@@ -12,6 +12,10 @@ ul.nav li{
   text-align: center;
 }
 
+ul.nav li a{
+  color: #990000;
+}
+
 ul.nav li a:hover{
   border-radius: 7px;
   color: white;
@@ -26,8 +30,8 @@ ul.nav li a:hover{
 .images button{
   text-align: center;
   font-size: small;
-  margin-top: 2px;
-  width: 100%;
+  margin-top: 0;
+  width: 50%;
   height: 15%;
 }
 
@@ -39,14 +43,20 @@ ul.nav li a:hover{
   width: 50%;
 }
 
-#series{
-  min-width: 1000px;
-  min-height: 1000px;
-  padding: 13px;
-  display: inline-block;
+#botaoPerfil{
+  width: 100%;
 }
 
-#botaoPerfil{
-  width: 100px;
-  height: 35px;
+.col{
+  height: 15%;
+  margin-bottom: 10px;
+}
+
+.row{
+  margin-bottom: 0;
+}
+
+#posterNulo{
+  width: 100%;
+  height: auto;
 }
