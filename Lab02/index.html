@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="seriesList">
   <head>
+
     <script src="angular/angular.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <script src="angular/seriesList.js"></script>
+
     <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -12,9 +16,9 @@
 
   <body ng-controller="seriesController">
     <ul class="nav nav-tabs">
-      <li><a data-togle="tab" href="#pesquisa">Pesquisar</a></li>
-      <li><a data-togle="tab" href="#series">Minhas séries</a></li>
-      <li><a data-togle="tab" href="#watchlist">WatchList</a></li>
+      <li class="active"><a data-toggle="tab" href="#pesquisa">Pesquisar</a></li>
+      <li><a data-toggle="tab" href="#series">Minhas séries</a></li>
+      <li><a data-toggle="tab" href="#watchlist">WatchList</a></li>
     </ul>
 
   <div class="tab-content">
@@ -22,6 +26,8 @@
       <h3>{{pesquisa}}</h3>
       <input class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
       <button class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
+
+      <h3></h3>
 
       <div class="images">
     		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
