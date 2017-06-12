@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <meta charset="utf-8">
-    <title>SI1 Lab02</title>
+    <title>Controle de Séries</title>
   </head>
 
   <body ng-controller="seriesController">
@@ -21,12 +21,12 @@
     <div id="pesquisa" class = "jumbotron tab-pane fade in active">
       <h3>{{pesquisa}}</h3>
       <input class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
-      <button class = "btn btn-primary btn-block" ng-click="getSeries(nome)">Pesquisar</button>
+      <button class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
 
-      <div>
+      <div class="images">
     		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
     		<img class="img-responsive center-block" src="{{serie.Poster}}">
-        <button class="btn btn-primary btn-success" ng-click="adicionaSerie(serie)">Adicionar</button>
+        <button class="btn btn-primary btn-danger" ng-click="adicionaSerie(serie)">Adicionar</button>
     		<span>{{serie.Title}}</span>
     		</md-list-item>
       </div>
