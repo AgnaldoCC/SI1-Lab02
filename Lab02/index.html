@@ -9,30 +9,36 @@
     <meta charset="utf-8">
     <title>SI1 Lab02</title>
   </head>
+
   <body ng-controller="seriesController">
-    <div class = "jumbotron">
+    <ul class="nav nav-tabs">
+      <li><a data-togle="tab" href="#pesquisa">Pesquisar</a></li>
+      <li><a data-togle="tab" href="#series">Minhas séries</a></li>
+      <li><a data-togle="tab" href="#watchlist">WatchList</a></li>
+    </ul>
+
+  <div class="tab-content">
+    <div id="pesquisa" class = "jumbotron tab-pane fade in active">
       <h3>{{pesquisa}}</h3>
       <input class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
       <button class = "btn btn-primary btn-block" ng-click="getSeries(nome)">Pesquisar</button>
+
+      <div>
+    		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
+    		<img class="img-responsive center-block" src="{{serie.Poster}}">
+        <button class="btn btn-primary btn-success" ng-click="adicionaSerie(serie)">Adicionar</button>
+    		<span>{{serie.Title}}</span>
+    		</md-list-item>
+      </div>
     </div>
 
-    <div>
-  		<md-list-item ng-repeat="serie in series" class= "col-sm-2">
-  		<img class="img-responsive center-block" src="{{serie.Poster}}">
-      <button class="btn btn-primary btn-success" ng-click="adicionaSerie(serie)">Adicionar</button>
-  		<p>{{serie.Title}}</p>
-  		</md-list-item>
-	</div>
-
-  <div class="meuPerfil">
-    <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-2">
-    <img class="img-responsive center-block" src="{{serie.Poster}}">
-    <p>{{serie.Title}}</p>
-    </md-list-item>
+    <div id="series" class="tab-pane fade">
+      <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-2">
+      <img class="img-responsive center-block" src="{{serie.Poster}}">
+      <p>{{serie.Title}}</p>
+      </md-list-item>
+    </div>
   </div>
 
-
-
-  </div>
   </body>
 </html>
