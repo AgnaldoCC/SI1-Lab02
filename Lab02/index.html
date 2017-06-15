@@ -21,24 +21,35 @@
       <li><a data-toggle="tab" href="#watchlist">WatchList</a></li>
     </ul>
 
+  <!-- Pagina Inicial-->
+
   <div class="tab-content">
-    <div id="pesquisa" class = "jumbotron tab-pane fade in active">
+    <div class = "tab-pane fade in active">
       <h3>{{pesquisa}}</h3>
       <input class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
       <button class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
 
       <h3></h3>
 
-    <div class="row">
-      <div class="row-height">
-      	<md-list-item ng-repeat="serie in series">
-      	<div class="col"><img class="thumbnail img-responsive center-block" ng-if="serie.Poster != 'N/A'" src="{{serie.Poster}}"></div>
-        <div class="col"><img class="thumbnail img-responsive center-block" id = "posterNulo" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg"></div>
-        <div class="col"><button class="btn btn-primary btn-danger col-bottom" ng-click="adicionaSerie(serie)">Adicionar</button></div>
-      	</md-list-item>
+  <!--Pesquisar-->
+
+
+    <md-list-item ng-repeat= "serie in series" >
+      <div class="col-lg-3">
+        <div class="hoverzoom">
+          <div id="sizeThumbnail" class="thumbnail grow">
+            <img id="tamanhoImagem" src="{{serie.Poster !== 'N/A' ? serie.Poster:'https://upload.wikimedia.org/wikipedia/commons/6/64/Poster_not_available.jpg'}}" alt="Lights">
+            <div class="imagens">
+              <button class="btn btn-primary btn-block" ng-click="addSerie(serie)">Add ao Meu Perfil</button>
+              <button class="btn btn-default btn-block" ng-click="watchlistAdd(serie)">Add a Watchlist</button>
+            </div>
+            </div>
+          </div>
       </div>
-    </div>
-    </div>
+    </md-list-item>
+  </div>
+
+
 
     <!--Minhas Series-->
 
@@ -54,12 +65,9 @@
     </div>
 
   <div id="watchList">
-
-
-
   </div>
 
-  </div>
+</div>
 
   </body>
 </html>
