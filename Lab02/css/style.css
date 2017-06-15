@@ -22,19 +22,6 @@ ul.nav li a:hover{
   background-color: #A62A2A;
 }
 
-.jumbotron button{
-  margin-top: 5px;
-  width: 50%;
-}
-
-.images button{
-  text-align: center;
-  font-size: small;
-  margin-top: 0;
-  width: 50%;
-  height: 15%;
-}
-
 .adicionarSerie{
   width: 50%;
 }
@@ -43,16 +30,43 @@ ul.nav li a:hover{
   width: 50%;
 }
 
+#titulo{
+  font-style: italic;
+}
+
+#nomePesquisa{
+  text-align: center;
+}
+
+#pesquisa{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#botaoPesquisar{
+  margin-top: 3px;
+  width: 50%;
+  margin-left: 24%;
+}
 
 #sizeThumbnail{
-    width: 245px;
-    height: 368px;
-    text-align: center;
+  width: 245px;
+  height: 368px;
+  text-align: center;
 }
 
 #tamanhoImagem{
-    width: 235px;
-    height: 358px;
+  width: 235px;
+  height: 330px;
+}
+
+#imagens{
+  margin-top: 10px;
+}
+
+.botoes{
+  width: 100%;
 }
 
 .hoverzoom {
@@ -61,22 +75,13 @@ width: 350px;
 overflow: hidden;
 }
 
-.hoverzoom .retina{
+.hoverzoom .imagens{
 position: absolute;
 width: 100%;
 height: 100%;
-top: 0;
-left: 0;
-opacity: 0;
-background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
 border-radius: 2px;
 text-align: center;
 padding: 30px;
--webkit-transition:	 all .8s cubic-bezier(.190, 1.000, .220, 1.000);
--moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
--ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
--o-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
 }
 
 .hoverzoom .imagens a {
