@@ -22,16 +22,18 @@ ul.nav li a:hover{
   background-color: #A62A2A;
 }
 
-.adicionarSerie{
-  width: 50%;
-}
-
-.deleteSerie{
-  width: 50%;
+#botoesPerfil{
+  width: 100%;
 }
 
 #titulo{
+  background-color: grey;
+  color: white;
+  width: 235px;
+  border-radius: 3px;
   font-style: italic;
+  margin-bottom: 0;
+  height: auto;
 }
 
 #nomePesquisa{
@@ -47,18 +49,18 @@ ul.nav li a:hover{
 #botaoPesquisar{
   margin-top: 3px;
   width: 50%;
-  margin-left: 24%;
+  margin-left: 25%;
 }
 
 #sizeThumbnail{
   width: 245px;
-  height: 368px;
+  height: auto;
   text-align: center;
 }
 
 #tamanhoImagem{
   width: 235px;
-  height: 330px;
+  height: 340px;
 }
 
 #imagens{

@@ -38,13 +38,13 @@
       <div id="imagens" class="col-lg-3">
         <div class="hoverzoom">
           <div id="sizeThumbnail" class="thumbnail grow">
-            <p id="titulo">{{serie.Title}}</p>
             <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
             <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+            <p id="titulo">{{serie.Title}}</p>
           </div>
         </div>
         <div class="botoes">
-          <button class="btn btn-primary btn-block" ng-click="addSerie(serie)">Adicionar ao Meu Perfil</button>
+          <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
           <button class="btn btn-default btn-block" ng-click="watchlistAdd(serie)">Adicionar a Watchlist</button>
         </div>
       </div>
@@ -56,14 +56,21 @@
     <!--Minhas Series-->
 
     <div id="series" class="tab-pane fade">
-    <h3></h3>
-    <md-list-item ng-repeat="serie in minhasSeries" class= "col-sm-3">
-    <img class="img-thumbnail img-responsive center-block" src="{{serie.Poster}}">
-    <div>
-      <div><button id ="botaoPerfil" class="btn btn-primary" ng-click="adicionarWatchList(serie)">Adicionar à WatchList</button></div>
-      <div><button id ="botaoPerfil" class="btn btn-primary btn-danger" ng-click="deletarSerie(serie)">Remover</button></div>
-    </div>
-    </md-list-item>
+      <md-list-item ng-repeat= "serie in minhasSeries" >
+      <div id="imagens" class="col-lg-3">
+        <div class="hoverzoom">
+          <div id="sizeThumbnail" class="thumbnail grow">
+            <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+            <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+            <p id="titulo">{{serie.Title}}</p>
+          </div>
+          <div id="botoesPerfil">
+            <button class="btn btn-primary" ng-click="adicionarWatchlist(serie)">Adicionar à WatchList</button>
+            <button class="btn btn-primary btn-danger" ng-click="deletarSerie(serie)">Remover do Perfil</button>
+        </div>
+        </div>
+      </div>
+      </md-list-item>
     </div>
 
   <div id="watchList">
