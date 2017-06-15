@@ -11,45 +11,47 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <meta charset="utf-8">
+
     <title>Controle de Séries</title>
+
   </head>
 
-  <body ng-controller="seriesController">
+<body ng-controller="seriesController">
 
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#pesquisa">Pesquisar</a></li>
-      <li><a data-toggle="tab" href="#series">Minhas séries</a></li>
-      <li><a data-toggle="tab" href="#watchlist">WatchList</a></li>
-    </ul>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#pesquisa">Pesquisar</a></li>
+    <li><a data-toggle="tab" href="#series">Minhas séries</a></li>
+    <li><a data-toggle="tab" href="#watchlist">WatchList</a></li>
+  </ul>
 
     <!-- Pagina Inicial-->
 
   <div class="tab-content">
 
-  <div id = "pesquisa" class = "tab-pane fade in active">
-      <h3 id="nomePesquisa">{{pesquisa}}</h3>
-      <input id="pesquisa" class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
-      <button id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
-      <h3></h3>
+    <div id = "pesquisa" class = "tab-pane fade in active">
+        <h3 id="nomePesquisa">{{pesquisa}}</h3>
+        <input id="pesquisa" class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
+        <button id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
+        <h3></h3>
 
-    <!--Pesquisar-->
+      <!--Pesquisar-->
 
-    <md-list-item ng-repeat= "serie in series" >
-      <div id="imagens" class="col-lg-3">
-        <div class="hoverzoom">
-          <div id="sizeThumbnail" class="thumbnail grow">
-            <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
-            <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
-            <p id="titulo">{{serie.Title}}</p>
+      <md-list-item ng-repeat= "serie in series" >
+        <div id="imagens" class="col-lg-3">
+          <div class="hoverzoom">
+            <div id="sizeThumbnail" class="thumbnail grow">
+              <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+              <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+              <p id="titulo">{{serie.Title}}</p>
+            </div>
+          </div>
+          <div id="botoes" class="col">
+            <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
+            <button class="btn btn-default btn-block" ng-click="watchlistAdd(serie)">Adicionar a Watchlist</button>
           </div>
         </div>
-        <div class="botoes">
-          <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
-          <button class="btn btn-default btn-block" ng-click="watchlistAdd(serie)">Adicionar a Watchlist</button>
-        </div>
-      </div>
-    </md-list-item>
-  </div>
+      </md-list-item>
+    </div>
 
 
 
@@ -73,10 +75,10 @@
       </md-list-item>
     </div>
 
-  <div id="watchList">
+  <div id="watchList" class="tab-pane fade">
   </div>
 
-</div>
+  </div>
 
-  </body>
+</body>
 </html>
