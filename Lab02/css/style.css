@@ -23,7 +23,10 @@ ul.nav li a:hover{
 }
 
 #botoesPerfil{
-  width: 100%;
+  width: 235px;
+  height: auto;
+  text-align: center;
+  margin-top: 5px;
 }
 
 #titulo{
@@ -41,15 +44,19 @@ ul.nav li a:hover{
 }
 
 #pesquisa{
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 
 #botaoPesquisar{
   margin-top: 3px;
-  width: 50%;
-  margin-left: 25%;
+  width: 35%;
+  text-align: center;
+  align-content: center;
+  margin-left: 35%;
+  margin-right: 65%;
+
 }
 
 #sizeThumbnail{
@@ -67,8 +74,9 @@ ul.nav li a:hover{
   margin-top: 10px;
 }
 
-.botoes{
+#botoes{
   width: 100%;
+  margin-top: 5px;
 }
 
 .hoverzoom {

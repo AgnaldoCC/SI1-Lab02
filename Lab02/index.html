@@ -43,11 +43,11 @@
               <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
               <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
               <p id="titulo">{{serie.Title}}</p>
+              <div id="botoes">
+                <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
+                <button class="btn btn-success btn-block" ng-click="adicionarWatchlist(serie)">Adicionar a Watchlist</button>
+              </div>
             </div>
-          </div>
-          <div id="botoes" class="col">
-            <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
-            <button class="btn btn-default btn-block" ng-click="watchlistAdd(serie)">Adicionar a Watchlist</button>
           </div>
         </div>
       </md-list-item>
@@ -57,7 +57,7 @@
 
     <!--Minhas Series-->
 
-    <div id="series" class="tab-pane fade">
+    <div id="series" class="tab-pane">
       <md-list-item ng-repeat= "serie in minhasSeries" >
       <div id="imagens" class="col-lg-3">
         <div class="hoverzoom">
@@ -65,17 +65,31 @@
             <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
             <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
             <p id="titulo">{{serie.Title}}</p>
+            <div id="botoesPerfil">
+              <ng-button class="btn btn-danger btn-block" ng-click="deletarSerie(serie)">Remover</ng-button>
           </div>
-          <div id="botoesPerfil">
-            <button class="btn btn-primary" ng-click="adicionarWatchlist(serie)">Adicionar à WatchList</button>
-            <button class="btn btn-primary btn-danger" ng-click="deletarSerie(serie)">Remover do Perfil</button>
-        </div>
+          </div>
         </div>
       </div>
       </md-list-item>
     </div>
 
-  <div id="watchList" class="tab-pane fade">
+  <div id="watchlist" class="tab-pane">
+    <md-list-item ng-repeat= "serie in watchList" >
+    <div id="imagens" class="col-lg-3">
+      <div class="hoverzoom">
+        <div id="sizeThumbnail" class="thumbnail grow">
+          <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+          <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+          <p id="titulo">{{serie.Title}}</p>
+          <div id="botoesPerfil">
+            <ng-button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Perfil</ng-button>
+            <ng-button class="btn btn-danger btn-block" ng-click="deletarSerie(serie)">Remover</ng-button>
+        </div>
+        </div>
+      </div>
+    </div>
+    </md-list-item>
   </div>
 
   </div>

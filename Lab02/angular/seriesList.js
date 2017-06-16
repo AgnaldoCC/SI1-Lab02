@@ -17,12 +17,14 @@ app.controller("seriesController", function($scope, $http){
 	};
 
   $scope.adicionaSerie = function(serie){
-    $scope.minhasSeries.push(serie);
+    if (!$scope.contains(serie)){
+      $scope.minhasSeries.push(serie);
+    }
   };
-  
+
   $scope.contains = function(serie){
-    for (var i = 0; i < minhasSeries.length; i++) {
-      if (minhasSeries[i].Title == serie.Title){
+    for (var i = 0; i < $scope.minhasSeries.length; i++) {
+      if ($scope.minhasSeries[i] === serie){
         return true;
       }
     }return false;
