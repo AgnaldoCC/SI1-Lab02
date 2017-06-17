@@ -36,10 +36,10 @@ app.controller("seriesController", function($scope, $http){
     var index = $scope.minhasSeries.indexOf(serie);
     decisao = confirm("Deseja excluir a série?");
     if (decisao){
+      if (index > -1){
+        $scope.minhasSeries.splice(index, 1);
+      }
       alert ("A série "+serie.Title+" foi excluída do seu perfil");
-    }
-    if (index > -1){
-      $scope.minhasSeries.splice(index, 1);
     }
   }
 
@@ -53,8 +53,12 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.deletarWatchList = function(serie){
     var index = $scope.watchList.indexOf(serie);
-    if (index > -1){
-      $scope.watchList.splice(index, 1);
+    decisao = confirm("Deseja excluir a série?");
+    if (decisao){
+      if (index > -1){
+        $scope.watchList.splice(index, 1);
+      }
+      alert ("A série "+serie.Title+" foi excluída da sua WatchList");
     }
   }
 
