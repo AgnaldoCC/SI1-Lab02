@@ -16,20 +16,21 @@ app.controller("seriesController", function($scope, $http){
 		return promise;
 	};
 
-  $scope.adicionaSerie = function(serie){
-    if (!$scope.contains(serie)){
-      $scope.minhasSeries.push(serie);
-    }else{
-      alert("Você já adicionou essa série");
-    }
-  };
-
-  $scope.contains = function(serie){
+  $scope.containsMinhasSeries = function(serie){
     for (var i = 0; i < $scope.minhasSeries.length; i++) {
       if ($scope.minhasSeries[i] === serie){
         return true;
       }
     }return false;
+  };
+
+  $scope.adicionaSerie = function(serie){
+    console.log(serie);
+    if (!$scope.containsMinhasSeries(serie)){
+      $scope.minhasSeries.push(serie);
+    }else{
+      alert("Você já adicionou essa série");
+    }
   };
 
   $scope.deletarMinhasSeries = function(serie){
@@ -43,11 +44,19 @@ app.controller("seriesController", function($scope, $http){
     }
   }
 
+  $scope.containsWatchList = function(serie){
+    for (var i = 0; i < $scope.watchList.length; i++) {
+      if ($scope.watchList[i] === serie){
+        return true;
+      }
+    }return false;
+  };
+
   $scope.adicionarWatchlist = function(serie){
-    if (!$scope.contains(serie)){
+    if (!$scope.containsWatchList(serie)){
       $scope.watchList.push(serie);
     }else{
-      alert("Você já adicionou essa série");
+      alert("Você já adicionou essa série à sua WatchList");
     }
   }
 
