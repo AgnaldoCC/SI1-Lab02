@@ -54,6 +54,7 @@
     <!--Minhas Series-->
 
     <div id="series" class="tab-pane">
+      <h2></h2>
       <md-list-item ng-repeat= "serie in minhasSeries" >
       <div id="imagens" class="col-lg-3">
         <div id="sizeThumbnail" class="thumbnail grow">
@@ -81,7 +82,24 @@
                   <div class="col-md-4">
                     <img id="imagemModal" src="{{serie.Poster}}"></div>
                 </div>
+                <p><b>Sinopse:</b></p>
                 <p>{{serie.Plot}}</p>
+                <p><b>Classificação etária:</b> {{serie.Rated}}</p>
+                <p><b>Média IMDB:</b> {{serie.imdbRating}}</p>
+                <p ng-show="serie.nota != undefined"><b>Minha nota para esta série:</b> {{serie.nota}}</p>
+                <p ng-show="serie.ultimoEpi != undefined"><b>Último episódio assistido desta série:</b> {{serie.ultimoEpi}}</p>
+                <div id="formModal" class="input-group">
+                  <input ng-model="minhaNota" class="form-control" placeholder="Adicionar nota">
+                  <div class="input-group-btn">
+                    <button type="submit" ng-click="adicionaMinhaNota(minhaNota, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                </div>
+                <div id="formModal" class ="input-group">
+                  <input ng-model="ultimoEpi" class="form-control" placeholder="Adicionar último episódio assistido">
+                  <div class="input-group-btn">
+                    <button type="submit" ng-click="adicionaUltimoEpi(ultimoEpi, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                </div>
               </div>
 
               <div class="modal-footer">
@@ -98,6 +116,7 @@
   <!-- WatchList-->
 
   <div id="watchlist" class="tab-pane">
+    <h2></h2>
     <md-list-item ng-repeat= "serie in watchList" >
     <div id="imagens" class="col-lg-3">
       <div id="sizeThumbnail" class="thumbnail grow">

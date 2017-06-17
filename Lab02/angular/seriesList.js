@@ -31,6 +31,7 @@ app.controller("seriesController", function($scope, $http){
       promise.then(function(response){
         var completa = response.data;
         $scope.minhasSeries.push(completa);
+        alert(serie.Title + " adicionada ao seu perfil.")
       }).catch(function(error){
         console.log(error);
       });
@@ -61,8 +62,9 @@ app.controller("seriesController", function($scope, $http){
   $scope.adicionarWatchlist = function(serie){
     if (!$scope.containsWatchList(serie)){
       $scope.watchList.push(serie);
+      alert(serie.Title + " adicionada a sua WatchList")
     }else{
-      alert("Você já adicionou essa série à sua WatchList");
+      alert("Você já adicionou essa série a sua WatchList");
     }
   }
 
@@ -75,6 +77,14 @@ app.controller("seriesController", function($scope, $http){
       }
       alert ("A série "+serie.Title+" foi excluída da sua WatchList");
     }
+  }
+
+  $scope.adicionaMinhaNota = function(minhaNota, serie){
+    serie.nota = minhaNota;
+  }
+
+  $scope.adicionaUltimoEpi = function(ultimoEpi, serie){
+    serie.ultimoEpi = ultimoEpi;
   }
 
 });
