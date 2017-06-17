@@ -18,13 +18,14 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.containsMinhasSeries = function(serie){
     for (var i = 0; i < $scope.minhasSeries.length; i++) {
-      if ($scope.minhasSeries[i] === serie){
+      if ($scope.minhasSeries[i].imdbID == serie.imdbID){
         return true;
       }
     }return false;
   };
 
   $scope.adicionaSerie = function(serie){
+    console.log(serie);
     if (!$scope.containsMinhasSeries(serie)){
       var promise = $http.get('https://omdbapi.com/?i=' + serie.imdbID + '&plot=full&apikey=93330d3c');
       promise.then(function(response){
@@ -33,10 +34,9 @@ app.controller("seriesController", function($scope, $http){
       }).catch(function(error){
         console.log(error);
       });
-
     }else{
       alert("Você já adicionou essa série.");
-    }
+    };
   };
 
   $scope.deletarMinhasSeries = function(serie){

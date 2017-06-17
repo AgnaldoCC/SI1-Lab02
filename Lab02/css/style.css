@@ -77,5 +77,6 @@ ul.nav li a:hover{
 #imagemModal{
   width: 235px;
   height: 340px;
+  margin-bottom: 10px;
 
 }
