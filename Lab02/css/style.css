@@ -62,7 +62,6 @@ ul.nav li a:hover{
 #sizeThumbnail{
   width: 245px;
   height: auto;
-  text-align: center;
 }
 
 #tamanhoImagem{
@@ -70,39 +69,7 @@ ul.nav li a:hover{
   height: 340px;
 }
 
-#imagens{
-  margin-top: 10px;
-}
-
 #botoes{
   width: 100%;
   margin-top: 5px;
-}
-
-.hoverzoom {
-position: relative;
-width: 350px;
-overflow: hidden;
-}
-
-.hoverzoom .imagens{
-position: absolute;
-width: 100%;
-height: 100%;
-border-radius: 2px;
-text-align: center;
-padding: 30px;
-}
-
-.hoverzoom .imagens a {
-display: block;
-width: 150px;
-background: #6fc5e9;
-border: 1px solid #59afd4;
-border-radius: 4px;
-color: #fff;
-text-decoration: none;
-text-align: center;
-padding: 10px 15px;
-margin: 16px auto 0;
 }

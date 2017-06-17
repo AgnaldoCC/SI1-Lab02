@@ -37,18 +37,36 @@
       <!--Pesquisar-->
 
       <md-list-item ng-repeat= "serie in series" >
-        <div id="imagens" class="col-lg-3">
-          <div class="hoverzoom">
+        <div class="col-lg-4">
             <div id="sizeThumbnail" class="thumbnail grow">
               <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
               <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
               <div id="botoes">
                 <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
                 <button class="btn btn-success btn-block" ng-click="adicionarWatchlist(serie)">Adicionar a Watchlist</button>
-                <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal">Sobre</button>
+                <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal{{$index}}">Sobre</button>
               </div>
             </div>
-          </div>
+
+            <!--Modal da série-->
+
+            <div id="myModal{{$index}}" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{serie.Title}}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>{{serie.Plot}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
         </div>
       </md-list-item>
     </div>
@@ -65,13 +83,16 @@
             <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
             <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
             <div id="botoesPerfil">
-              <ng-button class="btn btn-danger btn-block" ng-click="deletarSerie(serie)">Remover</ng-button>
+              <ng-button class="btn btn-danger btn-block" ng-click="deletarMinhasSeries(serie)">Remover</ng-button>
           </div>
           </div>
         </div>
       </div>
       </md-list-item>
     </div>
+
+
+  <!-- WatchList-->
 
   <div id="watchlist" class="tab-pane">
     <md-list-item ng-repeat= "serie in watchList" >
@@ -81,8 +102,8 @@
           <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
           <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
           <div id="botoesPerfil">
-            <ng-button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Perfil</ng-button>
-            <ng-button class="btn btn-danger btn-block" ng-click="deletarSerie(serie)">Remover</ng-button>
+            <ng-button class="btn btn-primary btn-block" ng-click="adicionaWatchList(serie)">Adicionar ao Perfil</ng-button>
+            <ng-button class="btn btn-danger btn-block" ng-click="deletarWatchList(serie)">Remover</ng-button>
         </div>
         </div>
       </div>
@@ -91,24 +112,6 @@
   </div>
 
   </div>
-
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Sobre</h4>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the modal.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
 
   </div>
 

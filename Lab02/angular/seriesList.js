@@ -19,6 +19,8 @@ app.controller("seriesController", function($scope, $http){
   $scope.adicionaSerie = function(serie){
     if (!$scope.contains(serie)){
       $scope.minhasSeries.push(serie);
+    }else{
+      alert("Você já adicionou essa série");
     }
   };
 
@@ -30,15 +32,30 @@ app.controller("seriesController", function($scope, $http){
     }return false;
   };
 
-  $scope.deletarSerie = function(serie){
+  $scope.deletarMinhasSeries = function(serie){
     var index = $scope.minhasSeries.indexOf(serie);
+    decisao = confirm("Deseja excluir a série?");
+    if (decisao){
+      alert ("A série "+serie.Title+" foi excluída do seu perfil");
+    }
     if (index > -1){
       $scope.minhasSeries.splice(index, 1);
     }
   }
 
   $scope.adicionarWatchlist = function(serie){
-    $scope.watchList.push(serie);
+    if (!$scope.contains(serie)){
+      $scope.watchList.push(serie);
+    }else{
+      alert("Você já adicionou essa série");
+    }
+  }
+
+  $scope.deletarWatchList = function(serie){
+    var index = $scope.watchList.indexOf(serie);
+    if (index > -1){
+      $scope.watchList.splice(index, 1);
+    }
   }
 
 });
