@@ -25,11 +25,17 @@ app.controller("seriesController", function($scope, $http){
   };
 
   $scope.adicionaSerie = function(serie){
-    console.log(serie);
     if (!$scope.containsMinhasSeries(serie)){
-      $scope.minhasSeries.push(serie);
+      var promise = $http.get('https://omdbapi.com/?i=' + serie.imdbID + '&plot=full&apikey=93330d3c');
+      promise.then(function(response){
+        var completa = response.data;
+        $scope.minhasSeries.push(completa);
+      }).catch(function(error){
+        console.log(error);
+      });
+
     }else{
-      alert("Você já adicionou essa série");
+      alert("Você já adicionou essa série.");
     }
   };
 
