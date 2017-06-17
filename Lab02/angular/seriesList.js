@@ -5,7 +5,10 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.series = [];
   $scope.minhasSeries = [];
-  $scope.watchList = []
+  $scope.watchList = [];
+
+  $scope.nota = "";
+  $scope.ultimoEpisodio = "";
 
   $scope.getSeries = function(nome){
 		var promise = $http.get('http://www.omdbapi.com/?s=' + nome + '&type=series&apikey=93330d3c').then(function(response){

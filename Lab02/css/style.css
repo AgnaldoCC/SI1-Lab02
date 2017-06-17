@@ -22,7 +22,8 @@ ul.nav li a:hover{
   background-color: #A62A2A;
 }
 
-#nomePesquisa{
+#titulo{
+  font-family: Snell Roundhand, cursive;
   text-align: center;
 }
 
@@ -36,16 +37,6 @@ ul.nav li a:hover{
   height: auto;
   text-align: center;
   margin-top: 5px;
-}
-
-#titulo{
-  background-color: grey;
-  color: white;
-  width: 235px;
-  border-radius: 3px;
-  font-style: italic;
-  margin-bottom: 0;
-  height: auto;
 }
 
 #pesquisa{

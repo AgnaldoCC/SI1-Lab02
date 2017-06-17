@@ -3,7 +3,7 @@
   <head>
 
     <script src="angular/angular.js"></script>
-    <script src="jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
     <script src="angular/seriesList.js"></script>
 
@@ -29,7 +29,7 @@
   <div class="tab-content">
 
     <div id = "pesquisa" class = "tab-pane fade in active">
-        <h3 id="nomePesquisa">{{pesquisa}}</h3>
+        <h3 id="titulo">{{pesquisa}}</h3>
         <input id="pesquisa" class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
         <button type="submit" id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
         <h3></h3>
@@ -54,7 +54,7 @@
     <!--Minhas Series-->
 
     <div id="series" class="tab-pane">
-      <h2></h2>
+      <h2 id="titulo">Suas Séries</h2>
       <md-list-item ng-repeat= "serie in minhasSeries" >
       <div id="imagens" class="col-lg-3">
         <div id="sizeThumbnail" class="thumbnail grow">
@@ -113,7 +113,7 @@
   <!-- WatchList-->
 
   <div id="watchlist" class="tab-pane">
-    <h2></h2>
+    <h2 id="titulo">Sua WatchList</h2>
     <md-list-item ng-repeat= "serie in watchList" >
     <div id="imagens" class="col-lg-3">
       <div id="sizeThumbnail" class="thumbnail grow">
@@ -127,8 +127,6 @@
     </div>
     </md-list-item>
   </div> <!--Fim watchList-->
-
-  </div>
 
   </div>
 
