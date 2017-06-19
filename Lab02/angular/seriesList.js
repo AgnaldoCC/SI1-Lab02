@@ -1,18 +1,16 @@
 var app = angular.module("seriesList", []);
 app.controller("seriesController", function($scope, $http){
 
-  $scope.pesquisa = "Pesquisar Séries";
-
   $scope.series = [];
   $scope.minhasSeries = [];
   $scope.watchList = [];
 
-  $scope.nota = "";
-  $scope.ultimoEpisodio = "";
+  $scope.pesquisou = false;
 
   $scope.getSeries = function(nome){
+    console.log($scope.series.length);
 		var promise = $http.get('http://www.omdbapi.com/?s=' + nome + '&type=series&apikey=93330d3c').then(function(response){
-			$scope.series = response.data.Search;
+      $scope.series = response.data.Search;
 		}, function error(response){
 			console.log("Erro");
 		})
@@ -89,4 +87,8 @@ app.controller("seriesController", function($scope, $http){
     serie.ultimoEpi = ultimoEpi;
   }
 
+  $scope.pesquisa = function(){
+    $scope.pesquisou = true;
+  }
+  
 });

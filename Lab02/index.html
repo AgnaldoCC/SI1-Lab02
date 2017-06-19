@@ -29,25 +29,25 @@
   <div class="tab-content">
 
     <div id = "pesquisa" class = "tab-pane fade in active">
-        <h3 id="titulo">{{pesquisa}}</h3>
+        <h3 id="titulo">{{"Pesquisar Séries"}}</h3>
         <input id="pesquisa" class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
-        <button type="submit" id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome)">Pesquisar</button>
+        <button type="submit" id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome); pesquisa()">Pesquisar</button>
         <h3></h3>
 
       <!--Pesquisar-->
 
-      <md-list-item ng-repeat= "serie in series">
+      <div ng-repeat= "serie in series">
         <div class="col-lg-4">
             <div id="sizeThumbnail" class="thumbnail grow">
-              <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
-              <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+              <img title="serie.Title" id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+              <img title="serie.Title" id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
               <div id="botoes">
                 <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
                 <button class="btn btn-success btn-block" ng-click="adicionarWatchlist(serie)">Adicionar a Watchlist</button>
               </div>
             </div>
         </div>
-      </md-list-item>
+      </div>
     </div> <!-- Fim Pesquisa -->
 
 
@@ -55,8 +55,8 @@
 
     <div id="series" class="tab-pane">
       <h2 id="titulo">Suas Séries</h2>
-      <md-list-item ng-repeat= "serie in minhasSeries" >
-      <div id="imagens" class="col-lg-3">
+      <div ng-repeat= "serie in minhasSeries" >
+      <div id="imagens" class="col-md-3">
         <div id="sizeThumbnail" class="thumbnail grow">
           <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
           <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
@@ -79,20 +79,21 @@
 
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-4">
-                    <img id="imagemModal" src="{{serie.Poster}}"></div>
+                  <div class="col">
+                    <img class="img-responsive" id="imagemModal" src="{{serie.Poster}}"></div>
                 </div>
                 <p><b>Sinopse:</b></p>
                 <p>{{serie.Plot}}</p>
+                <p><b>Gênero:</b> {{serie.Genre}}</p>
                 <p><b>Classificação etária:</b> {{serie.Rated}}</p>
                 <p><b>Média IMDB:</b> {{serie.imdbRating}}</p>
                 <p ng-show="serie.nota != undefined"><b>Minha nota para esta série:</b> {{serie.nota}}</p>
                 <p ng-show="serie.ultimoEpi != undefined"><b>Último episódio assistido desta série:</b> {{serie.ultimoEpi}}</p>
                 <div id="formModal" class="input-group">
-                  <input ng-model="minhaNota" class="form-control" placeholder="Adicionar nota">
-                  <div class="input-group-btn">
-                    <button type="submit" ng-click="adicionaMinhaNota(minhaNota, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
-                  </div>
+                <input ng-model="minhaNota" class="form-control" placeholder="Adicionar nota">
+                <div class="input-group-btn">
+                  <button type="submit" ng-click="adicionaMinhaNota(minhaNota, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
                 </div>
                 <div id="formModal" class ="input-group">
                   <input ng-model="ultimoEpi" class="form-control" placeholder="Adicionar último episódio assistido">
@@ -106,7 +107,7 @@
 
           </div>
         </div> <!--Fim Modal-->
-      </md-list-item>
+      </div>
     </div> <!--Fim Minhas Series-->
 
 

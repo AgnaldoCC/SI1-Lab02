@@ -50,8 +50,8 @@ ul.nav li a:hover{
   width: 35%;
   text-align: center;
   align-content: center;
-  margin-left: 35%;
-  margin-right: 65%;
+  margin-left: 34%;
+  margin-right: 66%;
 
 }
 
@@ -65,12 +65,15 @@ ul.nav li a:hover{
   height: 340px;
 }
 
+.modal-body{
+  position: relative;
+}
+
 #imagemModal{
   width: 235px;
   height: 340px;
   margin-bottom: 10px;
-  margin-left: 95%;
-  margin-right: 5%;
+  margin-left: 30%;
 }
 
 #formModal{
