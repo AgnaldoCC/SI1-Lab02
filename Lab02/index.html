@@ -41,8 +41,8 @@
       <div ng-repeat= "serie in series">
         <div class="col-lg-4">
             <div id="sizeThumbnail" class="thumbnail grow">
-              <img title="serie.Title" id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
-              <img title="serie.Title" id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+              <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+              <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
               <div id="botoes">
                 <button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Meu Perfil</button>
                 <button class="btn btn-success btn-block" ng-click="adicionarWatchlist(serie)">Adicionar a Watchlist</button>

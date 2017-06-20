@@ -8,7 +8,6 @@ app.controller("seriesController", function($scope, $http){
   $scope.pesquisou = "";
 
   $scope.getSeries = function(nome){
-    console.log($scope.series.length);
     $scope.series = [];
     $scope.pesquisou = "";
 		var promise = $http.get('http://www.omdbapi.com/?s=' + nome + '&type=series&apikey=93330d3c').then(function(response){
@@ -49,6 +48,11 @@ app.controller("seriesController", function($scope, $http){
     }else{
       alert("Você já adicionou " + serie.Title + " ao seu perfil.");
     };
+
+    if (contains($scope.watchList, serie)){
+      var index = $scope.watchList.indexOf(serie);
+      $scope.watchList.splice(index, 1);
+    }
   };
 
   $scope.deletarMinhasSeries = function(serie){
@@ -67,11 +71,15 @@ app.controller("seriesController", function($scope, $http){
   };
 
   $scope.adicionarWatchlist = function(serie){
-    if (!$scope.containsWatchList(serie)){
-      $scope.watchList.push(serie);
-      alert(serie.Title + " adicionada a sua WatchList")
+    if (contains($scope.minhasSeries, serie)){
+      alert("Você já possui essa série no seu perfil.");
     }else{
-      alert("Você já adicionou " + serie.Title + " a sua WatchList");
+      if (!contains($scope.watchList, serie)){
+        $scope.watchList.push(serie);
+        alert(serie.Title + " adicionada a sua WatchList")
+      }else{
+        alert("Você já adicionou " + serie.Title + " a sua WatchList");
+      }
     }
   }
 
