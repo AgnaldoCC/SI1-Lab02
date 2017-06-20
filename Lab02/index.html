@@ -34,6 +34,8 @@
         <button type="submit" id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome); pesquisa()">Pesquisar</button>
         <h3></h3>
 
+        <h2 ng-show="pesquisa()" id="errorMessage">Série não encontrada.</h2>
+
       <!--Pesquisar-->
 
       <div ng-repeat= "serie in series">
@@ -91,9 +93,9 @@
                 <p ng-show="serie.ultimoEpi != undefined"><b>Último episódio assistido desta série:</b> {{serie.ultimoEpi}}</p>
                 <div id="formModal" class="input-group">
                 <input ng-model="minhaNota" class="form-control" placeholder="Adicionar nota">
-                <div class="input-group-btn">
-                  <button type="submit" ng-click="adicionaMinhaNota(minhaNota, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
-                </div>
+                  <div class="input-group-btn">
+                    <button type="submit" ng-click="adicionaMinhaNota(minhaNota, serie)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
                 </div>
                 <div id="formModal" class ="input-group">
                   <input ng-model="ultimoEpi" class="form-control" placeholder="Adicionar último episódio assistido">

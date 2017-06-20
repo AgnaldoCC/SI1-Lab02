@@ -5,24 +5,35 @@ app.controller("seriesController", function($scope, $http){
   $scope.minhasSeries = [];
   $scope.watchList = [];
 
-  $scope.pesquisou = false;
+  $scope.pesquisou = "";
 
   $scope.getSeries = function(nome){
     console.log($scope.series.length);
+    $scope.series = [];
+    $scope.pesquisou = "";
 		var promise = $http.get('http://www.omdbapi.com/?s=' + nome + '&type=series&apikey=93330d3c').then(function(response){
-      $scope.series = response.data.Search;
+      if(response.data.Response == "False"){
+          $scope.pesquisou = response.data.Error;
+      }else{
+          $scope.series = response.data.Search;
+      };
+
 		}, function error(response){
 			console.log("Erro");
 		})
 		return promise;
 	};
 
-  $scope.containsMinhasSeries = function(serie){
-    for (var i = 0; i < $scope.minhasSeries.length; i++) {
-      if ($scope.minhasSeries[i].imdbID == serie.imdbID){
+  var contains = function(array, serie){
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].imdbID == serie.imdbID){
         return true;
       }
     }return false;
+  }
+
+  $scope.containsMinhasSeries = function(serie){
+    return contains($scope.minhasSeries, serie);
   };
 
   $scope.adicionaSerie = function(serie){
@@ -36,7 +47,7 @@ app.controller("seriesController", function($scope, $http){
         console.log(error);
       });
     }else{
-      alert("Você já adicionou essa série.");
+      alert("Você já adicionou " + serie.Title + " ao seu perfil.");
     };
   };
 
@@ -52,11 +63,7 @@ app.controller("seriesController", function($scope, $http){
   }
 
   $scope.containsWatchList = function(serie){
-    for (var i = 0; i < $scope.watchList.length; i++) {
-      if ($scope.watchList[i] === serie){
-        return true;
-      }
-    }return false;
+    return contains($scope.watchList, serie);
   };
 
   $scope.adicionarWatchlist = function(serie){
@@ -64,7 +71,7 @@ app.controller("seriesController", function($scope, $http){
       $scope.watchList.push(serie);
       alert(serie.Title + " adicionada a sua WatchList")
     }else{
-      alert("Você já adicionou essa série a sua WatchList");
+      alert("Você já adicionou " + serie.Title + " a sua WatchList");
     }
   }
 
@@ -88,7 +95,7 @@ app.controller("seriesController", function($scope, $http){
   }
 
   $scope.pesquisa = function(){
-    $scope.pesquisou = true;
+    return $scope.pesquisou == "Movie not found!";
   }
-  
+
 });
