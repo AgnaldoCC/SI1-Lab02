@@ -19,8 +19,8 @@
 <body ng-controller="seriesController">
 
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#pesquisa">Pesquisar</a></li>
-    <li><a data-toggle="tab" href="#series">Minhas séries</a></li>
+    <li><a data-toggle="tab" href="#pesquisa">Pesquisar</a></li>
+    <li class="active"><a data-toggle="tab" href="#series">Minhas séries</a></li>
     <li><a data-toggle="tab" href="#watchlist">WatchList</a></li>
   </ul>
 
@@ -28,7 +28,7 @@
 
   <div class="tab-content">
 
-    <div id = "pesquisa" class = "tab-pane fade in active">
+    <div id = "pesquisa" class = "tab-pane">
         <h3 id="titulo">{{"Pesquisar Séries"}}</h3>
         <input id="pesquisa" class="form-control" type="text" placeholder="Digite aqui o nome da série" ng-model="nome">
         <button type="submit" id="botaoPesquisar" class = "btn btn-primary btn-danger" ng-click="getSeries(nome); pesquisa()">Pesquisar</button>
@@ -55,13 +55,13 @@
 
     <!--Minhas Series-->
 
-    <div id="series" class="tab-pane">
+    <div id="series" class="tab-pane fade in active">
       <h2 id="titulo">Suas Séries</h2>
       <div ng-repeat= "serie in minhasSeries" >
       <div id="imagens" class="col-md-3">
         <div id="sizeThumbnail" class="thumbnail grow">
-          <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
-          <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+          <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+          <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
           <div id="botoesPerfil">
             <ng-button class="btn btn-danger btn-block" ng-click="deletarMinhasSeries(serie)">Remover</ng-button>
             <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal{{$index}}">Sobre</button>
@@ -120,8 +120,8 @@
     <md-list-item ng-repeat= "serie in watchList" >
     <div id="imagens" class="col-lg-3">
       <div id="sizeThumbnail" class="thumbnail grow">
-        <img id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
-        <img id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
+        <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster != 'N/A'" src={{serie.Poster}}>
+        <img title="{{serie.Title}}" id="tamanhoImagem" ng-if="serie.Poster == 'N/A'" src="http://v0.static.betalabs.com.br/wilson-591da56985027/ecommerce/belcosmeticos/img/unavailable.jpg">
         <div id="botoesPerfil">
           <ng-button class="btn btn-primary btn-block" ng-click="adicionaSerie(serie)">Adicionar ao Perfil</ng-button>
           <ng-button class="btn btn-danger btn-block" ng-click="deletarWatchList(serie)">Remover</ng-button>

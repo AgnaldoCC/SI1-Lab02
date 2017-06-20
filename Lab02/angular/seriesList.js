@@ -41,7 +41,7 @@ app.controller("seriesController", function($scope, $http){
       promise.then(function(response){
         var completa = response.data;
         $scope.minhasSeries.push(completa);
-        alert(serie.Title + " adicionada ao seu perfil.")
+        alert(serie.Title + " adicionado(a) ao seu perfil.")
       }).catch(function(error){
         console.log(error);
       });
