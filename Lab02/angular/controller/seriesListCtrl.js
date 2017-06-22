@@ -1,5 +1,5 @@
 var app = angular.module("seriesList", []);
-app.controller("seriesController", function($scope, $http){
+app.controller("seriesController", function($scope, seriesAPI){
 
   $scope.series = [];
   $scope.minhasSeries = [];
@@ -10,7 +10,8 @@ app.controller("seriesController", function($scope, $http){
   $scope.getSeries = function(nome){
     $scope.series = [];
     $scope.pesquisou = "";
-		var promise = $http.get('http://www.omdbapi.com/?s=' + nome + '&type=series&apikey=93330d3c').then(function(response){
+		var promise = seriesAPI.getSeriesFromAPI(nome);
+    promise.then(function(response){
       if(response.data.Response == "False"){
           $scope.pesquisou = response.data.Error;
       }else{
@@ -37,7 +38,7 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.adicionaSerie = function(serie){
     if (!$scope.containsMinhasSeries(serie)){
-      var promise = $http.get('https://omdbapi.com/?i=' + serie.imdbID + '&plot=full&apikey=93330d3c');
+      var promise = seriesAPI.getFullSerieFromAPI(serie);
       promise.then(function(response){
         var completa = response.data;
         $scope.minhasSeries.push(completa);
@@ -57,7 +58,7 @@ app.controller("seriesController", function($scope, $http){
 
   $scope.deletarMinhasSeries = function(serie){
     var index = $scope.minhasSeries.indexOf(serie);
-    decisao = confirm("Deseja excluir a série?");
+    decisao = confirm("Deseja excluir a série " + serie.Title + " do seu perfil?");
     if (decisao){
       if (index > -1){
         $scope.minhasSeries.splice(index, 1);

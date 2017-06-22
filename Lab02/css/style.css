@@ -1,12 +1,3 @@
-.jumbotron{
-  background-color: white;
-  text-align: center;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
 ul.nav li{
   width: 33%;
   text-align: center;
@@ -27,38 +18,6 @@ ul.nav li a:hover{
   text-align: center;
 }
 
-#errorMessage{
-  margin-top: 100px;
-}
-
-#botoes{
-  width: 100%;
-  margin-top: 5px;
-}
-
-#botoesPerfil{
-  width: 235px;
-  height: auto;
-  text-align: center;
-  margin-top: 5px;
-}
-
-#pesquisa{
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#botaoPesquisar{
-  margin-top: 3px;
-  width: 35%;
-  text-align: center;
-  align-content: center;
-  margin-left: 34%;
-  margin-right: 66%;
-
-}
-
 #sizeThumbnail{
   width: 245px;
   height: auto;
@@ -67,19 +26,4 @@ ul.nav li a:hover{
 #tamanhoImagem{
   width: 235px;
   height: 340px;
-}
-
-.modal-body{
-  position: relative;
-}
-
-#imagemModal{
-  width: 235px;
-  height: 340px;
-  margin-bottom: 10px;
-  margin-left: 30%;
-}
-
-#formModal{
-  margin-bottom: 5px;
 }
