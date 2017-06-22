@@ -83,17 +83,6 @@ app.controller("seriesController", function($scope, $http){
     }
   }
 
-  $scope.deletarWatchList = function(serie){
-    var index = $scope.watchList.indexOf(serie);
-    decisao = confirm("Deseja excluir a série?");
-    if (decisao){
-      if (index > -1){
-        $scope.watchList.splice(index, 1);
-      }
-      alert ("A série "+serie.Title+" foi excluída da sua WatchList");
-    }
-  }
-
   $scope.adicionaMinhaNota = function(minhaNota, serie){
     serie.nota = minhaNota;
   }
